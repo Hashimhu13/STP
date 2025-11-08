@@ -327,15 +327,20 @@
     <h1>تجميعات اختبار STP للغة الإنجليزية</h1>
     <p class="subtitle">نموذج تجريبي مكوَّن من 50 سؤالاً مع شرح للإجابات</p>
 
-    <!-- شاشة البداية -->
+    <!-- شاشة البداية / الصفحة الرئيسية -->
     <div id="start-screen">
       <div class="info-box">
         <strong>تعليمات:</strong><br />
-        - الاختبار يحتوي على 50 سؤالاً (قواعد، مفردات، وقراءة فهم).<br />
+        - الاختبار الكامل يحتوي على 50 سؤالاً (قواعد، مفردات، وقراءة فهم).<br />
+        - زر "تجربة 10 أسئلة" يعطيك اختبارًا تجريبيًا مكوَّنًا من 10 أسئلة عشوائية.
         - بعد اختيار الإجابة تظهر لك النتيجة مع شرح الجواب الصحيح.<br />
-        - في النهاية تظهر درجتك من 50.
+        - في النهاية تظهر درجتك (لكل اختبار عدد الأسئلة المصاغة).
       </div>
-      <button class="btn btn-primary" id="start-btn">ابدأ الاختبار</button>
+
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <button class="btn btn-primary" id="try-btn">تجربة 10 أسئلة</button>
+        <button class="btn btn-secondary" id="full-btn">الاختبار الكامل (50)</button>
+      </div>
     </div>
 
     <!-- شاشة الأسئلة -->
@@ -1000,23 +1005,37 @@
     const resultMainTextEl = document.getElementById("result-main-text");
     const resultSubTextEl = document.getElementById("result-sub-text");
 
-    // =========================
-    //   حالة الاختبار
-    // =========================
-    let currentQuestionIndex = 0;
-    let score = 0;
-    let answeredCurrent = false;
+  // =========================
+  //   حالة الاختبار
+  // =========================
+  let currentQuestionIndex = 0;
+  let score = 0;
+  let answeredCurrent = false;
+  // currentQuestions holds the active quiz questions (either the full set or a random subset)
+  let currentQuestions = [];
 
-    totalQuestionsSpan.textContent = questions.length;
+    // mode: 'try' for 10 random questions, 'full' for all questions
+    function startQuiz(mode) {
+      // prepare questions
+      if (mode === "try") {
+        // pick 10 random unique questions
+        const shuffled = questions.slice().sort(() => Math.random() - 0.5);
+        currentQuestions = shuffled.slice(0, Math.min(10, shuffled.length));
+      } else {
+        // full test
+        currentQuestions = questions.slice();
+      }
 
-    function startQuiz() {
       currentQuestionIndex = 0;
       score = 0;
       answeredCurrent = false;
 
+      // update UI
       startScreen.classList.add("hidden");
       resultScreen.classList.add("hidden");
       quizScreen.classList.remove("hidden");
+
+      totalQuestionsSpan.textContent = currentQuestions.length;
 
       showQuestion();
     }
@@ -1028,14 +1047,14 @@
     }
 
     function showQuestion() {
-      const question = questions[currentQuestionIndex];
+      const question = currentQuestions[currentQuestionIndex];
       answeredCurrent = false;
       nextBtn.disabled = true;
       feedbackEl.textContent = "";
       feedbackEl.className = "feedback";
 
       currentQuestionNumberSpan.textContent = currentQuestionIndex + 1;
-      const progressPercent = ((currentQuestionIndex) / questions.length) * 100;
+      const progressPercent = ((currentQuestionIndex) / currentQuestions.length) * 100;
       progressBar.style.width = progressPercent + "%";
 
       // Show paragraph if reading question
@@ -1047,7 +1066,7 @@
         paragraphEl.textContent = "";
       }
 
-      questionTextEl.textContent = question.text;
+  questionTextEl.textContent = question.text;
 
       // Render options
       optionsListEl.innerHTML = "";
@@ -1074,7 +1093,7 @@
       });
 
       // زر التالي
-      if (currentQuestionIndex === questions.length - 1) {
+      if (currentQuestionIndex === currentQuestions.length - 1) {
         nextBtn.textContent = "عرض النتيجة";
       } else {
         nextBtn.textContent = "السؤال التالي";
@@ -1083,8 +1102,8 @@
 
     function handleOptionClick(selectedIndex) {
       if (answeredCurrent) return;
-      const question = questions[currentQuestionIndex];
-      const correctIndex = question.correctIndex;
+  const question = currentQuestions[currentQuestionIndex];
+  const correctIndex = question.correctIndex;
       const optionButtons = optionsListEl.querySelectorAll(".option-btn");
 
       optionButtons.forEach((btn, index) => {
@@ -1115,7 +1134,7 @@
     function goToNextQuestion() {
       if (!answeredCurrent) return;
 
-      if (currentQuestionIndex < questions.length - 1) {
+      if (currentQuestionIndex < currentQuestions.length - 1) {
         currentQuestionIndex++;
         showQuestion();
       } else {
@@ -1127,9 +1146,9 @@
       quizScreen.classList.add("hidden");
       resultScreen.classList.remove("hidden");
 
-      scoreNumberEl.textContent = `${score}/${questions.length}`;
+  scoreNumberEl.textContent = `${score}/${currentQuestions.length}`;
 
-      const percentage = Math.round((score / questions.length) * 100);
+  const percentage = Math.round((score / currentQuestions.length) * 100);
       let mainText = "";
       let subText = "";
 
@@ -1156,8 +1175,14 @@
     // =========================
     //   ربط الأزرار
     // =========================
-    startBtn.addEventListener("click", startQuiz);
-    restartBtn.addEventListener("click", startQuiz);
+    const tryBtn = document.getElementById("try-btn");
+    const fullBtn = document.getElementById("full-btn");
+
+    tryBtn.addEventListener("click", () => startQuiz("try"));
+    fullBtn.addEventListener("click", () => startQuiz("full"));
+
+    // restart from result goes back to home selection
+    restartBtn.addEventListener("click", restartQuiz);
     restartMidBtn.addEventListener("click", restartQuiz);
     nextBtn.addEventListener("click", goToNextQuestion);
   </script>
