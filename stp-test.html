@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>تجميعات اختبار STP للغة الانجليزية</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      direction: rtl;
+    }
+
+    .app {
+      background: #ffffff;
+      max-width: 800px;
+      width: 100%;
+      border-radius: 18px;
+      padding: 20px 18px 24px;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
+    }
+
+    @media (min-width: 640px) {
+      .app {
+        padding: 26px 26px 30px;
+      }
+    }
+
+    h1 {
+      font-size: 1.3rem;
+      text-align: center;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-bottom: 18px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-width: 140px;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: #ffffff;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(37, 99, 235, 0.32);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+    }
+
+    .btn-secondary {
+      background: #f3f4f6;
+      color: #111827;
+    }
+
+    .btn-secondary:hover {
+      background: #e5e7eb;
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: default;
+      box-shadow: none;
+      transform: none;
+    }
+
+    #start-screen {
+      text-align: center;
+      padding: 12px 4px 4px;
+    }
+
+    .info-box {
+      background: #eff6ff;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 0.85rem;
+      color: #1f2937;
+      margin: 8px auto 14px;
+      text-align: right;
+    }
+
+    .info-box strong {
+      color: #1d4ed8;
+    }
+
+    .progress {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin-bottom: 10px;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .progress-bar-wrap {
+      flex: 1;
+      height: 6px;
+      background: #e5e7eb;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, #2563eb, #4f46e5);
+      transition: width 0.25s ease;
+    }
+
+    #question-card {
+      border-radius: 14px;
+      border: 1px solid #e5e7eb;
+      padding: 14px 12px;
+      margin-bottom: 12px;
+      background: #f9fafb;
+    }
+
+    @media (min-width: 640px) {
+      #question-card {
+        padding: 16px 16px 14px;
+      }
+    }
+
+    #paragraph {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      color: #374151;
+      line-height: 1.5;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 10px 12px;
+      border: 1px dashed #d1d5db;
+    }
+
+    #question-text {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: #111827;
+    }
+
+    #options-list {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .option-btn {
+      width: 100%;
+      text-align: right;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      cursor: pointer;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.15s ease, border 0.15s ease, transform 0.1s ease;
+    }
+
+    .option-label {
+      font-weight: 600;
+      color: #6b7280;
+      margin-left: 8px;
+    }
+
+    .option-text {
+      flex: 1;
+      color: #111827;
+    }
+
+    .option-btn:hover {
+      background: #f3f4f6;
+      transform: translateY(-1px);
+    }
+
+    .option-btn.correct {
+      background: #dcfce7;
+      border-color: #22c55e;
+    }
+
+    .option-btn.incorrect {
+      background: #fee2e2;
+      border-color: #ef4444;
+    }
+
+    .option-btn.selected {
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.4);
+    }
+
+    .feedback {
+      min-height: 48px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      border-radius: 12px;
+      padding: 8px 10px;
+    }
+
+    .feedback.correct {
+      background: #ecfdf5;
+      color: #166534;
+      border: 1px solid #6ee7b7;
+    }
+
+    .feedback.incorrect {
+      background: #fef2f2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+    }
+
+    .feedback .title {
+      font-weight: 600;
+      margin-left: 4px;
+    }
+
+    .footer-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+      flex-wrap: wrap-reverse;
+    }
+
+    #result-screen {
+      text-align: center;
+      padding: 12px 4px 4px;
+    }
+
+    .score-circle {
+      width: 120px;
+      height: 120px;
+      border-radius: 999px;
+      border: 7px solid #2563eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 12px auto 10px;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #111827;
+      position: relative;
+    }
+
+    .score-circle span {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #6b7280;
+      position: absolute;
+      bottom: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .result-text-main {
+      margin-top: 18px;
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+      color: #111827;
+      font-weight: 600;
+    }
+
+    .result-text-sub {
+      font-size: 0.9rem;
+      color: #4b5563;
+      margin-bottom: 16px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+      background: #eff6ff;
+      color: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>تجميعات اختبار STP للغة الإنجليزية</h1>
+    <p class="subtitle">نموذج تجريبي مكوَّن من 50 سؤالاً مع شرح للإجابات</p>
+
+    <!-- شاشة البداية -->
+    <div id="start-screen">
+      <div class="info-box">
+        <strong>تعليمات:</strong><br />
+        - الاختبار يحتوي على 50 سؤالاً (قواعد، مفردات، وقراءة فهم).<br />
+        - بعد اختيار الإجابة تظهر لك النتيجة مع شرح الجواب الصحيح.<br />
+        - في النهاية تظهر درجتك من 50.
+      </div>
+      <button class="btn btn-primary" id="start-btn">ابدأ الاختبار</button>
+    </div>
+
+    <!-- شاشة الأسئلة -->
+    <div id="quiz-screen" class="hidden">
+      <div class="progress">
+        <div>السؤال <span id="current-question-number">1</span> من <span id="total-questions">50</span></div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+      </div>
+
+      <div id="question-card">
+        <p id="paragraph" class="hidden"></p>
+        <h2 id="question-text"></h2>
+        <ul id="options-list"></ul>
+      </div>
+
+      <div id="feedback"></div>
+
+      <div class="footer-actions">
+        <button class="btn btn-secondary" id="restart-mid-btn">إعادة من البداية</button>
+        <button class="btn btn-primary" id="next-btn" disabled>السؤال التالي</button>
+      </div>
+    </div>
+
+    <!-- شاشة النتيجة -->
+    <div id="result-screen" class="hidden">
+      <div class="badge">انتهى الاختبار</div>
+      <div class="score-circle" id="score-circle">
+        <div id="score-number">0/50</div>
+        <span>الدرجة</span>
+      </div>
+      <p class="result-text-main" id="result-main-text"></p>
+      <p class="result-text-sub" id="result-sub-text"></p>
+      <button class="btn btn-primary" id="restart-btn">إعادة الاختبار</button>
+    </div>
+  </div>
+
+  <script>
+    // =========================
+    //   بنك الأسئلة (50 سؤال)
+    // =========================
+    const questions = [
+      // ------- Grammar & Vocabulary (1–30) -------
+      {
+        id: 1,
+        type: "mcq",
+        text: "I ____ to the library every weekend.",
+        options: ["goes", "go", "going", "gone"],
+        correctIndex: 1,
+        explanation:
+          "الفاعل هو I لذلك نستخدم الفعل بصورته الأساسية: go. لا نضيف -s لأن ذلك مع He/She/It."
+      },
+      {
+        id: 2,
+        type: "mcq",
+        text: "She is interested ____ learning English.",
+        options: ["on", "in", "at", "for"],
+        correctIndex: 1,
+        explanation:
+          "التعبير الصحيح هو interested in something وليس on أو at أو for."
+      },
+      {
+        id: 3,
+        type: "mcq",
+        text: "The word 'assist' is closest in meaning to ____.",
+        options: ["help", "refuse", "ignore", "stop"],
+        correctIndex: 0,
+        explanation:
+          "Assist تعني يساعد = help، أما refuse يرفض، ignore يتجاهل، stop يوقف."
+      },
+      {
+        id: 4,
+        type: "mcq",
+        text: "The opposite of 'difficult' is ____.",
+        options: ["easy", "hard", "heavy", "slow"],
+        correctIndex: 0,
+        explanation:
+          "عكس difficult هو easy (سهل). كلمة hard قريبة من difficult وليست عكسها."
+      },
+      {
+        id: 5,
+        type: "mcq",
+        text: "They ____ dinner when I called.",
+        options: ["have", "are having", "were having", "had"],
+        correctIndex: 2,
+        explanation:
+          "نستخدم الماضي المستمر were having لوصف فعل كان مستمراً في الماضي عندما حدث فعل آخر (called)."
+      },
+      {
+        id: 6,
+        type: "mcq",
+        text: "My brother and I went to the store, but ____ didn't buy anything.",
+        options: ["he", "they", "we", "I"],
+        correctIndex: 2,
+        explanation:
+          "الضمير المناسب العائد إلى 'my brother and I' هو we."
+      },
+      {
+        id: 7,
+        type: "mcq",
+        text: "If it ____ tomorrow, we will stay at home.",
+        options: ["rains", "rained", "will rain", "is raining"],
+        correctIndex: 0,
+        explanation:
+          "في الشرط من النوع الأول نستخدم المضارع البسيط بعد if: If it rains, we will stay..."
+      },
+      {
+        id: 8,
+        type: "mcq",
+        text: "He is ____ honest man.",
+        options: ["a", "an", "the", "no article"],
+        correctIndex: 1,
+        explanation:
+          "نستخدم an قبل الكلمات التي تبدأ بصوت حرف علّة، و honest تُنطق /onest/ لذا نستخدم an."
+      },
+      {
+        id: 9,
+        type: "mcq",
+        text: "This exercise is ____ than the previous one.",
+        options: ["more easy", "easiest", "easier", "most easy"],
+        correctIndex: 2,
+        explanation:
+          "المقارنة لصفة قصيرة (easy) تكون بإضافة -er: easier than."
+      },
+      {
+        id: 10,
+        type: "mcq",
+        text: "The report was ____ by the manager yesterday.",
+        options: ["write", "wrote", "written", "writing"],
+        correctIndex: 2,
+        explanation:
+          "في المبني للمجهول مع الماضي البسيط نستخدم was/were + التصريف الثالث: was written."
+      },
+      {
+        id: 11,
+        type: "mcq",
+        text: "____ you ever visited London?",
+        options: ["Did", "Have", "Are", "Do"],
+        correctIndex: 1,
+        explanation:
+          "نستخدم Have/Has مع الحاضر التام: Have you ever visited...?"
+      },
+      {
+        id: 12,
+        type: "mcq",
+        text: "She speaks English ____.",
+        options: ["fluent", "more fluent", "fluently", "fluentlier"],
+        correctIndex: 2,
+        explanation:
+          "نحتاج إلى ظرف حال (adverb) لوصف الفعل speaks، والكلمة الصحيحة fluently."
+      },
+      {
+        id: 13,
+        type: "mcq",
+        text: "How ____ money do you need?",
+        options: ["many", "much", "few", "little"],
+        correctIndex: 1,
+        explanation:
+          "نستخدم much مع الأسماء غير المعدودة مثل money: How much money...?"
+      },
+      {
+        id: 14,
+        type: "mcq",
+        text: "He ____ swim very well when he was a child.",
+        options: ["can", "could", "is able to", "will can"],
+        correctIndex: 1,
+        explanation:
+          "للمقدرة في الماضي نستخدم could: He could swim very well..."
+      },
+      {
+        id: 15,
+        type: "mcq",
+        text: "You ____ submit the assignment before midnight. It's a rule.",
+        options: ["can", "may", "must", "could"],
+        correctIndex: 2,
+        explanation:
+          "للقواعد والالتزامات القوية نستخدم must: You must submit..."
+      },
+      {
+        id: 16,
+        type: "mcq",
+        text: "Please ____ out this form and send it back.",
+        options: ["fill", "fill in", "fill on", "fill to"],
+        correctIndex: 1,
+        explanation:
+          "التعبير الصحيح هو phrasal verb: fill in a form (يعبّئ النموذج)."
+      },
+      {
+        id: 17,
+        type: "mcq",
+        text: "He made a quick ____ before the meeting.",
+        options: ["decision", "decide", "deciding", "decided"],
+        correctIndex: 0,
+        explanation:
+          "بعد صفة مثل quick نستخدم اسم: quick decision."
+      },
+      {
+        id: 18,
+        type: "mcq",
+        text: "I enjoy ____ English podcasts.",
+        options: ["listen to", "to listen to", "listening to", "listened to"],
+        correctIndex: 2,
+        explanation:
+          "بعد أفعال معينة مثل enjoy نستخدم الـ gerund: enjoy + -ing → enjoy listening to."
+      },
+      {
+        id: 19,
+        type: "mcq",
+        text: "The number of students in this class ____ increasing.",
+        options: ["are", "is", "be", "have"],
+        correctIndex: 1,
+        explanation:
+          "الفاعل الحقيقي هو 'number' (مفرد)، لذلك نستخدم is: The number of students is..."
+      },
+      {
+        id: 20,
+        type: "mcq",
+        text: "We ____ the results next week.",
+        options: ["will know", "knew", "know", "are know"],
+        correctIndex: 0,
+        explanation:
+          "للحديث عن قرار/توقع في المستقبل نستخدم will + الفعل: will know."
+      },
+      {
+        id: 21,
+        type: "mcq",
+        text: "Could you please ____ your name?",
+        options: ["say", "tell", "speak", "talk"],
+        correctIndex: 1,
+        explanation:
+          "نستخدم tell مع المفعول: tell me your name. لذلك في الطلب polite: Could you tell me your name?"
+      },
+      {
+        id: 22,
+        type: "mcq",
+        text: "The new policy will ____ many employees.",
+        options: ["affect", "effect", "affection", "effective"],
+        correctIndex: 0,
+        explanation:
+          "affect فعل (يؤثر)، أما effect اسم (نتيجة/أثر). الجملة تحتاج فعلاً."
+      },
+      {
+        id: 23,
+        type: "mcq",
+        text: "Choose the correct sentence for an email:",
+        options: [
+          "im waiting for your reply.",
+          "I'm waiting for your reply.",
+          "im Waiting for your reply",
+          "I waiting for your reply."
+        ],
+        correctIndex: 1,
+        explanation:
+          "الجملة الصحيحة نحويًا وإملائيًا: I'm waiting for your reply. (حرف كبير في البداية + I'm)."
+      },
+      {
+        id: 24,
+        type: "mcq",
+        text: "He was tired; ____, he finished the project on time.",
+        options: ["however", "because", "so", "although"],
+        correctIndex: 0,
+        explanation:
+          "نستخدم however لربط جملتين متعاكستين في المعنى: كان متعباً، ومع ذلك أنهى المشروع."
+      },
+      {
+        id: 25,
+        type: "mcq",
+        text: "Which sentence has the correct word order?",
+        options: [
+          "Always she arrives early.",
+          "She always arrives early.",
+          "She arrives always early.",
+          "Arrives she always early."
+        ],
+        correctIndex: 1,
+        explanation:
+          "الترتيب الصحيح: الفاعل ثم ظرف التكرار ثم الفعل: She always arrives early."
+      },
+      {
+        id: 26,
+        type: "mcq",
+        text: "I'm very ____ in learning more about this program.",
+        options: ["interesting", "interested", "interest", "interests"],
+        correctIndex: 1,
+        explanation:
+          "نستخدم interested لوصف الشعور (أنا مهتم)، و interesting لوصف الشيء (الشيء مُثير للاهتمام)."
+      },
+      {
+        id: 27,
+        type: "mcq",
+        text: "Choose the correctly spelled word:",
+        options: ["recieve", "receive", "receeve", "recive"],
+        correctIndex: 1,
+        explanation:
+          "التهجئة الصحيحة هي receive. قاعدة مشهورة: i before e except after c (غالبًا)."
+      },
+      {
+        id: 28,
+        type: "mcq",
+        text: "Which sentence is the most polite request?",
+        options: [
+          "Close the window.",
+          "You must close the window.",
+          "Could you please close the window?",
+          "Close the window now!"
+        ],
+        correctIndex: 2,
+        explanation:
+          "الجملة الثالثة تستخدم Could you please… وهي صيغة طلب مهذبة في اللغة الإنجليزية."
+      },
+      {
+        id: 29,
+        type: "mcq",
+        text: "He said that he ____ the report the next day.",
+        options: ["will send", "would send", "sends", "sent"],
+        correctIndex: 1,
+        explanation:
+          "في reported speech نغيّر will إلى would: He said that he would send..."
+      },
+      {
+        id: 30,
+        type: "mcq",
+        text: "It's a beautiful day, ____?",
+        options: ["is it", "isn't it", "does it", "didn't it"],
+        correctIndex: 1,
+        explanation:
+          "Tag question: الجملة مثبتة (It's a beautiful day) فنستخدم النفي في آخرها: isn't it?"
+      },
+
+      // ------- Reading Comprehension A (31–35) -------
+      {
+        id: 31,
+        type: "reading",
+        paragraph:
+          "Ali is preparing for the STP English test. Every evening, he studies vocabulary, practices grammar exercises, and listens to English podcasts. On weekends, he takes practice tests to check his progress. Although he sometimes feels tired, he is determined to improve his score.",
+        text: "What is the main idea of the paragraph?",
+        options: [
+          "Ali is tired of studying for his exams.",
+          "Ali is preparing carefully for the STP English test.",
+          "Ali only studies on weekends.",
+          "Ali prefers listening to music instead of studying."
+        ],
+        correctIndex: 1,
+        explanation:
+          "الفكرة الرئيسية أن علي يستعد لاختبار STP بجدية وبشكل منتظم، وليس فقط في عطلة نهاية الأسبوع."
+      },
+      {
+        id: 32,
+        type: "reading",
+        paragraph:
+          "Ali is preparing for the STP English test. Every evening, he studies vocabulary, practices grammar exercises, and listens to English podcasts. On weekends, he takes practice tests to check his progress. Although he sometimes feels tired, he is determined to improve his score.",
+        text: "What does the word 'determined' most nearly mean in this paragraph?",
+        options: ["angry", "not sure", "very motivated", "confused"],
+        correctIndex: 2,
+        explanation:
+          "في السياق، determined تعني أنه لديه إصرار وحافز كبير (very motivated) لرفع درجته."
+      },
+      {
+        id: 33,
+        type: "reading",
+        paragraph:
+          "Ali is preparing for the STP English test. Every evening, he studies vocabulary, practices grammar exercises, and listens to English podcasts. On weekends, he takes practice tests to check his progress. Although he sometimes feels tired, he is determined to improve his score.",
+        text: "How often does Ali take practice tests?",
+        options: [
+          "Every morning",
+          "Every evening",
+          "On weekends",
+          "Once a year"
+        ],
+        correctIndex: 2,
+        explanation:
+          "النص يقول: On weekends, he takes practice tests → أي في عطلة نهاية الأسبوع."
+      },
+      {
+        id: 34,
+        type: "reading",
+        paragraph:
+          "Ali is preparing for the STP English test. Every evening, he studies vocabulary, practices grammar exercises, and listens to English podcasts. On weekends, he takes practice tests to check his progress. Although he sometimes feels tired, he is determined to improve his score.",
+        text: "Which activity is NOT mentioned as part of Ali's study routine?",
+        options: [
+          "Studying vocabulary",
+          "Practicing grammar exercises",
+          "Listening to English podcasts",
+          "Watching English movies in the cinema"
+        ],
+        correctIndex: 3,
+        explanation:
+          "النص ذكر المفردات والقواعد والاستماع للبودكاست، ولم يذكر مشاهدة أفلام في السينما."
+      },
+      {
+        id: 35,
+        type: "reading",
+        paragraph:
+          "Ali is preparing for the STP English test. Every evening, he studies vocabulary, practices grammar exercises, and listens to English podcasts. On weekends, he takes practice tests to check his progress. Although he sometimes feels tired, he is determined to improve his score.",
+        text: "Why does Ali take practice tests?",
+        options: [
+          "To relax after studying",
+          "To check his progress",
+          "To compete with his friends",
+          "To learn new hobbies"
+        ],
+        correctIndex: 1,
+        explanation:
+          "النص يذكر بوضوح أن علي يأخذ اختبارات تجريبية 'to check his progress' أي ليتابع تقدمه."
+      },
+
+      // ------- Reading Comprehension B (36–40) -------
+      {
+        id: 36,
+        type: "reading",
+        paragraph:
+          "Many people now prefer online courses because they offer flexibility. Students can watch the lessons at any time and from any place. However, online learning also requires self-discipline, as there is no teacher in the room to remind students to stay focused.",
+        text: "Why do many people prefer online courses?",
+        options: [
+          "Because they are always easy.",
+          "Because they offer flexibility in time and place.",
+          "Because there are no assignments.",
+          "Because teachers are always online."
+        ],
+        correctIndex: 1,
+        explanation:
+          "الفقرة تقول إن الناس يفضلون الدورات أونلاين لأنها توفر مرونة في الوقت والمكان."
+      },
+      {
+        id: 37,
+        type: "reading",
+        paragraph:
+          "Many people now prefer online courses because they offer flexibility. Students can watch the lessons at any time and from any place. However, online learning also requires self-discipline, as there is no teacher in the room to remind students to stay focused.",
+        text: "What is one challenge of online learning mentioned in the paragraph?",
+        options: [
+          "The internet is always slow.",
+          "Students must have strong self-discipline.",
+          "Teachers do not like technology.",
+          "There are too many exams."
+        ],
+        correctIndex: 1,
+        explanation:
+          "التحدي المذكور هو أن التعلم الأونلاين يحتاج إلى انضباط ذاتي قوي self-discipline."
+      },
+      {
+        id: 38,
+        type: "reading",
+        paragraph:
+          "Many people now prefer online courses because they offer flexibility. Students can watch the lessons at any time and from any place. However, online learning also requires self-discipline, as there is no teacher in the room to remind students to stay focused.",
+        text: "The word 'flexibility' in the paragraph is closest in meaning to ____.",
+        options: ["strict rules", "freedom to choose", "high cost", "fast speed"],
+        correctIndex: 1,
+        explanation:
+          "flexibility تعني المرونة أو حرية الاختيار، وليس القواعد الصارمة أو السرعة."
+      },
+      {
+        id: 39,
+        type: "reading",
+        paragraph:
+          "Many people now prefer online courses because they offer flexibility. Students can watch the lessons at any time and from any place. However, online learning also requires self-discipline, as there is no teacher in the room to remind students to stay focused.",
+        text: "According to the paragraph, when can students watch the lessons?",
+        options: [
+          "Only in the morning",
+          "Only at night",
+          "At any time they want",
+          "Only during weekends"
+        ],
+        correctIndex: 2,
+        explanation:
+          "يقول النص: Students can watch the lessons at any time → أي في أي وقت يريدون."
+      },
+      {
+        id: 40,
+        type: "reading",
+        paragraph:
+          "Many people now prefer online courses because they offer flexibility. Students can watch the lessons at any time and from any place. However, online learning also requires self-discipline, as there is no teacher in the room to remind students to stay focused.",
+        text: "What is NOT mentioned as a feature of online courses?",
+        options: [
+          "Flexibility",
+          "Anytime access",
+          "Any place access",
+          "Free certificates"
+        ],
+        correctIndex: 3,
+        explanation:
+          "الفقرة لم تذكر شيئاً عن شهادات مجانية، بل عن المرونة وإمكانية الدخول في أي وقت ومن أي مكان."
+      },
+
+      // ------- Reading Comprehension C (41–45) -------
+      {
+        id: 41,
+        type: "reading",
+        paragraph:
+          "A small company decided to introduce flexible working hours. Employees can start their workday between 7:00 a.m. and 10:00 a.m., as long as they complete eight hours of work. Many employees feel happier because they can avoid traffic and manage their family responsibilities more easily.",
+        text: "What change did the company make?",
+        options: [
+          "It reduced the number of working hours.",
+          "It introduced flexible working hours.",
+          "It closed the office on Fridays.",
+          "It moved to a new building."
+        ],
+        correctIndex: 1,
+        explanation:
+          "التغيير المذكور هو إدخال نظام ساعات عمل مرنة flexible working hours."
+      },
+      {
+        id: 42,
+        type: "reading",
+        paragraph:
+          "A small company decided to introduce flexible working hours. Employees can start their workday between 7:00 a.m. and 10:00 a.m., as long as they complete eight hours of work. Many employees feel happier because they can avoid traffic and manage their family responsibilities more easily.",
+        text: "When can employees start their workday?",
+        options: [
+          "Between 7:00 a.m. and 10:00 a.m.",
+          "Between 8:00 a.m. and 12:00 p.m.",
+          "Only at 8:00 a.m.",
+          "Any time after 12:00 p.m."
+        ],
+        correctIndex: 0,
+        explanation:
+          "النص يذكر أن الموظفين يمكنهم البدء بين 7 و10 صباحًا."
+      },
+      {
+        id: 43,
+        type: "reading",
+        paragraph:
+          "A small company decided to introduce flexible working hours. Employees can start their workday between 7:00 a.m. and 10:00 a.m., as long as they complete eight hours of work. Many employees feel happier because they can avoid traffic and manage their family responsibilities more easily.",
+        text: "Why do many employees feel happier?",
+        options: [
+          "Because they work fewer hours.",
+          "Because they can avoid traffic and manage family duties.",
+          "Because they receive higher salaries.",
+          "Because they work from home."
+        ],
+        correctIndex: 1,
+        explanation:
+          "السبب المذكور لسعادتهم هو تجنب الزحام وإدارة مسؤوليات الأسرة بسهولة أكبر."
+      },
+      {
+        id: 44,
+        type: "reading",
+        paragraph:
+          "A small company decided to introduce flexible working hours. Employees can start their workday between 7:00 a.m. and 10:00 a.m., as long as they complete eight hours of work. Many employees feel happier because they can avoid traffic and manage their family responsibilities more easily.",
+        text: "How many hours must each employee work?",
+        options: ["Six hours", "Seven hours", "Eight hours", "Ten hours"],
+        correctIndex: 2,
+        explanation:
+          "الفقرة توضح أن على الموظفين إكمال ثماني ساعات عمل."
+      },
+      {
+        id: 45,
+        type: "reading",
+        paragraph:
+          "A small company decided to introduce flexible working hours. Employees can start their workday between 7:00 a.m. and 10:00 a.m., as long as they complete eight hours of work. Many employees feel happier because they can avoid traffic and manage their family responsibilities more easily.",
+        text: "The word 'responsibilities' in the paragraph is closest in meaning to ____.",
+        options: ["problems", "duties", "hobbies", "holidays"],
+        correctIndex: 1,
+        explanation:
+          "responsibilities تعني المسؤوليات أو الواجبات duties، وليس الهوايات أو الإجازات."
+      },
+
+      // ------- Reading Comprehension D (46–50) -------
+      {
+        id: 46,
+        type: "reading",
+        paragraph:
+          "Water is one of the most important natural resources. In many countries, people are encouraged to save water at home. Simple actions, such as turning off the tap while brushing your teeth and fixing leaking pipes, can make a big difference over time.",
+        text: "What is the main topic of the paragraph?",
+        options: [
+          "How to clean the house quickly",
+          "Why people like drinking cold water",
+          "The importance of saving water at home",
+          "Different types of natural resources"
+        ],
+        correctIndex: 2,
+        explanation:
+          "الفكرة الأساسية هي أهمية ترشيد استهلاك المياه في المنزل."
+      },
+      {
+        id: 47,
+        type: "reading",
+        paragraph:
+          "Water is one of the most important natural resources. In many countries, people are encouraged to save water at home. Simple actions, such as turning off the tap while brushing your teeth and fixing leaking pipes, can make a big difference over time.",
+        text: "Which action is recommended in the paragraph?",
+        options: [
+          "Taking longer showers",
+          "Turning off the tap while brushing your teeth",
+          "Washing the car every day",
+          "Keeping leaking pipes as they are"
+        ],
+        correctIndex: 1,
+        explanation:
+          "الفقرة تنصح بإطفاء/إغلاق الصنبور أثناء غسل الأسنان وإصلاح التسريبات."
+      },
+      {
+        id: 48,
+        type: "reading",
+        paragraph:
+          "Water is one of the most important natural resources. In many countries, people are encouraged to save water at home. Simple actions, such as turning off the tap while brushing your teeth and fixing leaking pipes, can make a big difference over time.",
+        text: "The phrase 'make a big difference' is closest in meaning to ____.",
+        options: [
+          "have no effect",
+          "become expensive",
+          "have a strong positive effect",
+          "take a long time"
+        ],
+        correctIndex: 2,
+        explanation:
+          "make a big difference تعني أن لها تأثيرًا إيجابيًا قويًا وواضحًا."
+      },
+      {
+        id: 49,
+        type: "reading",
+        paragraph:
+          "Water is one of the most important natural resources. In many countries, people are encouraged to save water at home. Simple actions, such as turning off the tap while brushing your teeth and fixing leaking pipes, can make a big difference over time.",
+        text: "What are leaking pipes an example of?",
+        options: [
+          "A way to save water",
+          "A reason for wasting water",
+          "A natural resource",
+          "A type of drinking water"
+        ],
+        correctIndex: 1,
+        explanation:
+          "الأنابيب التي تُسرب الماء تعد مثالاً على هدر المياه، وليس توفيرها."
+      },
+      {
+        id: 50,
+        type: "reading",
+        paragraph:
+          "Water is one of the most important natural resources. In many countries, people are encouraged to save water at home. Simple actions, such as turning off the tap while brushing your teeth and fixing leaking pipes, can make a big difference over time.",
+        text: "According to the paragraph, where are people encouraged to save water?",
+        options: [
+          "At home",
+          "At work",
+          "At school",
+          "At the supermarket"
+        ],
+        correctIndex: 0,
+        explanation:
+          "الفقرة تقول بوضوح: people are encouraged to save water at home."
+      }
+    ];
+
+    // =========================
+    //   عناصر الواجهة
+    // =========================
+    const startScreen = document.getElementById("start-screen");
+    const quizScreen = document.getElementById("quiz-screen");
+    const resultScreen = document.getElementById("result-screen");
+
+    const startBtn = document.getElementById("start-btn");
+    const restartBtn = document.getElementById("restart-btn");
+    const restartMidBtn = document.getElementById("restart-mid-btn");
+    const nextBtn = document.getElementById("next-btn");
+
+    const currentQuestionNumberSpan = document.getElementById("current-question-number");
+    const totalQuestionsSpan = document.getElementById("total-questions");
+    const progressBar = document.getElementById("progress-bar");
+
+    const paragraphEl = document.getElementById("paragraph");
+    const questionTextEl = document.getElementById("question-text");
+    const optionsListEl = document.getElementById("options-list");
+    const feedbackEl = document.getElementById("feedback");
+
+    const scoreNumberEl = document.getElementById("score-number");
+    const resultMainTextEl = document.getElementById("result-main-text");
+    const resultSubTextEl = document.getElementById("result-sub-text");
+
+    // =========================
+    //   حالة الاختبار
+    // =========================
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let answeredCurrent = false;
+
+    totalQuestionsSpan.textContent = questions.length;
+
+    function startQuiz() {
+      currentQuestionIndex = 0;
+      score = 0;
+      answeredCurrent = false;
+
+      startScreen.classList.add("hidden");
+      resultScreen.classList.add("hidden");
+      quizScreen.classList.remove("hidden");
+
+      showQuestion();
+    }
+
+    function restartQuiz() {
+      startScreen.classList.remove("hidden");
+      quizScreen.classList.add("hidden");
+      resultScreen.classList.add("hidden");
+    }
+
+    function showQuestion() {
+      const question = questions[currentQuestionIndex];
+      answeredCurrent = false;
+      nextBtn.disabled = true;
+      feedbackEl.textContent = "";
+      feedbackEl.className = "feedback";
+
+      currentQuestionNumberSpan.textContent = currentQuestionIndex + 1;
+      const progressPercent = ((currentQuestionIndex) / questions.length) * 100;
+      progressBar.style.width = progressPercent + "%";
+
+      // Show paragraph if reading question
+      if (question.type === "reading" && question.paragraph) {
+        paragraphEl.textContent = question.paragraph;
+        paragraphEl.classList.remove("hidden");
+      } else {
+        paragraphEl.classList.add("hidden");
+        paragraphEl.textContent = "";
+      }
+
+      questionTextEl.textContent = question.text;
+
+      // Render options
+      optionsListEl.innerHTML = "";
+      question.options.forEach((opt, index) => {
+        const li = document.createElement("li");
+        const btn = document.createElement("button");
+        btn.className = "option-btn";
+        btn.dataset.index = index;
+
+        const labelSpan = document.createElement("span");
+        labelSpan.className = "option-label";
+        labelSpan.textContent = String.fromCharCode(65 + index) + ".";
+
+        const textSpan = document.createElement("span");
+        textSpan.className = "option-text";
+        textSpan.textContent = opt;
+
+        btn.appendChild(textSpan);
+        btn.appendChild(labelSpan);
+        btn.addEventListener("click", () => handleOptionClick(index));
+
+        li.appendChild(btn);
+        optionsListEl.appendChild(li);
+      });
+
+      // زر التالي
+      if (currentQuestionIndex === questions.length - 1) {
+        nextBtn.textContent = "عرض النتيجة";
+      } else {
+        nextBtn.textContent = "السؤال التالي";
+      }
+    }
+
+    function handleOptionClick(selectedIndex) {
+      if (answeredCurrent) return;
+      const question = questions[currentQuestionIndex];
+      const correctIndex = question.correctIndex;
+      const optionButtons = optionsListEl.querySelectorAll(".option-btn");
+
+      optionButtons.forEach((btn, index) => {
+        btn.classList.remove("selected");
+        if (index === correctIndex) {
+          btn.classList.add("correct");
+        }
+        if (index === selectedIndex && index !== correctIndex) {
+          btn.classList.add("incorrect");
+        }
+      });
+
+      optionButtons[selectedIndex].classList.add("selected");
+
+      if (selectedIndex === correctIndex) {
+        score++;
+        feedbackEl.className = "feedback correct";
+        feedbackEl.innerHTML = `<span class="title">إجابة صحيحة ✔</span> ${question.explanation}`;
+      } else {
+        feedbackEl.className = "feedback incorrect";
+        feedbackEl.innerHTML = `<span class="title">إجابة غير صحيحة ✘</span> ${question.explanation}`;
+      }
+
+      answeredCurrent = true;
+      nextBtn.disabled = false;
+    }
+
+    function goToNextQuestion() {
+      if (!answeredCurrent) return;
+
+      if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+        showQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      quizScreen.classList.add("hidden");
+      resultScreen.classList.remove("hidden");
+
+      scoreNumberEl.textContent = `${score}/${questions.length}`;
+
+      const percentage = Math.round((score / questions.length) * 100);
+      let mainText = "";
+      let subText = "";
+
+      if (percentage >= 85) {
+        mainText = "ممتاز! مستواك في اللغة الإنجليزية قوي جدًا 👏";
+        subText = "استمر في المراجعة واستخدام اللغة يوميًا لرفع مستواك أكثر.";
+      } else if (percentage >= 70) {
+        mainText = "جيد جدًا! لديك أساس قوي 💪";
+        subText = "ركز على الأخطاء وراجع القواعد والمفردات التي أخطأت فيها.";
+      } else if (percentage >= 50) {
+        mainText = "جيد، لكن تحتاج إلى مزيد من التدريب 🙂";
+        subText = "حاول حل المزيد من التجميعات والتركيز على نقاط الضعف.";
+      } else {
+        mainText = "تحتاج إلى مزيد من الممارسة 🔁";
+        subText = "لا تقلق، استمر في التدريب على القراءة والقواعد والمفردات بشكل يومي.";
+      }
+
+      resultMainTextEl.textContent = mainText;
+      resultSubTextEl.textContent = subText;
+
+      progressBar.style.width = "100%";
+    }
+
+    // =========================
+    //   ربط الأزرار
+    // =========================
+    startBtn.addEventListener("click", startQuiz);
+    restartBtn.addEventListener("click", startQuiz);
+    restartMidBtn.addEventListener("click", restartQuiz);
+    nextBtn.addEventListener("click", goToNextQuestion);
+  </script>
+</body>
+</html>
